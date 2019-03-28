@@ -11,9 +11,9 @@ optional properties: "citation" added at least once, "year" added at least once.
 */
 
 var quotes = [
-  {quote: 'I said there are certain flowers that wilt if you put them in a vase',
+  {quote: 'I said there are certain flowers that wilt if you put them in a vase...',
     source: 'Jorge Amado',
-    citation: 'Gabriela, Clove an Cinnamon',
+    citation: 'Gabriela, Clove and Cinnamon',
     year: '1958'
   },
   {quote: 'Wax on, wax off.',
@@ -27,12 +27,12 @@ var quotes = [
     year: '1977'
   },
   {quote: 'Life would be much easier if I had the source code.',
-    source: 'unknown',
+    source: 'Unknown',
     citation: '',
     year: ''
   },
-  {quote: 'My code is 100% mistrake free',
-    source: 'unknown',
+  {quote: 'My code is 100% mistrake free.',
+    source: 'Unknown',
     citation: '',
     year: ''
   }
@@ -69,6 +69,22 @@ create function printQuote (){
 }
 */
 
+function printQuote () {
+  var randomQuote = getRandomQuote();
+  var html = '';
+  html += '<p class="quote">' + randomQuote.quote + '</p>';
+  html += '<p class="source">' + randomQuote.source;
+  if (randomQuote.citation) {
+    html += '<span class="citation">' + randomQuote.citation + '</span>';
+  }
+  if (randomQuote.year) {
+    html += '<span class="year">' + randomQuote.year + '</span>';
+  }
+  html += '</p>';
+
+  div = document.getElementById('quote-box');
+  div.innerHTML = html;
+}
 
 
 /***
@@ -78,7 +94,7 @@ create function printQuote (){
   comment.
 ***/
 
-//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.      REMOVE
