@@ -27,23 +27,16 @@ var quotes = [
     year: '1977'
   },
   {quote: 'Life would be much easier if I had the source code.',
-    source: 'Unknown',
-    citation: '',
-    year: ''
+    source: 'Unknown'
   },
   {quote: 'My code is 100% mistrake free.',
-    source: 'Unknown',
-    citation: '',
-    year: ''
+    source: 'Unknown'
   }
 ]
 
 
 /*
-create function getRandomQuote () {
-  create var and calculate randomNumber;
-  return random object from quotes[randomNumber]
-}
+getRandomQuote
 */
 
 function getRandomQuote () {
@@ -52,21 +45,7 @@ function getRandomQuote () {
 }
 
 /*
-create function printQuote (){
-  call getRandomQuote() and store in var randomQuote {};
-  create var html to store randomQuote.properties;
-  using HTML template in project instructions
-  add randomQuote.quote;
-  add randomQuote.source to html;
-  if (randomQuote has citation) {
-    add randomQuote.citation to html;
-  }
-  if (randomQuote has year) {
-    add randomQuote.year to html;
-  }
-  target <div id="quote-box">;
-  set div.innerHTML to html;
-}
+call getRandomQuote and print out to screen.
 */
 
 function printQuote () {
@@ -81,20 +60,17 @@ function printQuote () {
     html += '<span class="year">' + randomQuote.year + '</span>';
   }
   html += '</p>';
-
+  console.log(randomQuote);
   div = document.getElementById('quote-box');
   div.innerHTML = html;
+  ///button = document.getElementById('loadQuote');      JUST TRYING OUT STUFF
+  ///button.innerHTML = "New one"
 }
-
+setInterval(printQuote, 5000); ///https://www.w3schools.com/jsref/met_win_setinterval.asp
 
 /***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote`        REMOVE
-  function. So do not make any changes to the line of code below this 
-  comment.
+  When button is clicked, the event listener 
+  below will call printQuote
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.      REMOVE
