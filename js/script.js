@@ -14,7 +14,7 @@ var quotes = [
   {quote: 'I said there are certain flowers that wilt if you put them in a vase...',
     source: 'Jorge Amado',
     citation: 'Gabriela, Clove and Cinnamon',
-    year: '1958'
+    year: '1962'
   },
   {quote: 'Wax on, wax off.',
     source: 'Mr Miyagi',
@@ -34,9 +34,13 @@ var quotes = [
   }
 ]
 
+// timer; if button not clicked, timer will run continuously
+var timer = setInterval(printQuote, 5000); 
+
 
 /*
-getRandomQuote
+getRandomQuote will calculate randomNumber to be used as index in quotes array. 
+This will return a random object (quote and related info)
 */
 
 function getRandomQuote () {
@@ -45,7 +49,10 @@ function getRandomQuote () {
 }
 
 /*
-call getRandomQuote and print out to screen.
+printQuote will call getRandomQuote,.
+build one paragraph with quote, second paragraph with remaining info, if existing,
+print to screen
+restart timer
 */
 
 function printQuote () {
@@ -60,17 +67,15 @@ function printQuote () {
     html += '<span class="year">' + randomQuote.year + '</span>';
   }
   html += '</p>';
-  console.log(randomQuote);
-  div = document.getElementById('quote-box');
-  div.innerHTML = html;
-  ///button = document.getElementById('loadQuote');      JUST TRYING OUT STUFF
-  ///button.innerHTML = "New one"
+  var div = document.getElementById('quote-box').innerHTML = html;
+  clearInterval(timer);
+  timer = setInterval(printQuote, 5000);
 }
-setInterval(printQuote, 5000); ///https://www.w3schools.com/jsref/met_win_setinterval.asp
 
 /***
-  When button is clicked, the event listener 
+  When button is clicked, event listener 
   below will call printQuote
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
