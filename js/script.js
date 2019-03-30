@@ -34,8 +34,18 @@ var quotes = [
   }
 ]
 
+// array of background colors and image
+var backgroungs = ['red', 'blue', 'purple', "url('testPic.png')"];  ///   CHANGE PIC!!
+
 // timer; if button not clicked, timer will run continuously
 var timer = setInterval(printQuote, 5000); 
+
+// function to change background
+function changeBackground() {
+  var number =  Math.floor(Math.random() * backgroungs.length);
+  document.body.style.background = backgroungs[number];
+}
+
 
 
 /*
@@ -70,6 +80,7 @@ function printQuote () {
   var div = document.getElementById('quote-box').innerHTML = html;
   clearInterval(timer);
   timer = setInterval(printQuote, 5000);
+  changeBackground();
 }
 
 /***
