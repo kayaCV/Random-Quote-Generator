@@ -14,39 +14,45 @@ var quotes = [
   {quote: 'I said there are certain flowers that wilt if you put them in a vase...',
     source: 'Jorge Amado',
     citation: 'Gabriela, Clove and Cinnamon',
-    year: '1962'
+    year: '1962',
+    category: 'Book'
   },
   {quote: 'Wax on, wax off.',
     source: 'Mr Miyagi',
     citation: 'The Karate Kid',
-    year: '1984'
+    year: '1984',
+    category: 'Movie'
   },
   {quote: 'Every little thing gonna be alright!',
     source: 'Bob Marley',
     citation: 'Three little birds',
-    year: '1977'
+    year: '1977',
+    category: 'Music'
   },
   {quote: 'Life would be much easier if I had the source code.',
     source: 'Unknown'
   },
   {quote: 'My code is 100% mistrake free.',
     source: 'Unknown'
+  },
+  {quote: 'Push through the pain. Giving up hurts more.',
+    source: 'Vegeta',
+    citation: 'Drangon Ball Z',
+    category: 'Anime'
   }
 ]
 
 // array of background colors and image
-var backgroungs = ['red', 'blue', 'purple', "url('testPic.png')"];  ///   CHANGE PIC!!
+var backgrounds = ['red', 'blue', 'purple', "url('testPic.png')", 'orange'];  ///   CHANGE PIC!!
 
 // timer; if button not clicked, timer will run continuously
 var timer = setInterval(printQuote, 5000); 
 
 // function to change background
 function changeBackground() {
-  var number =  Math.floor(Math.random() * backgroungs.length);
-  document.body.style.background = backgroungs[number];
+  var number =  Math.floor(Math.random() * backgrounds.length);
+  document.body.style.background = backgrounds[number];
 }
-
-
 
 /*
 getRandomQuote will calculate randomNumber to be used as index in quotes array. 
@@ -59,10 +65,11 @@ function getRandomQuote () {
 }
 
 /*
-printQuote will call getRandomQuote,.
-build one paragraph with quote, second paragraph with remaining info, if existing,
+printQuote will getRandomQuote,
+build one paragraph with quote, second and third paragraph with remaining info,
 print to screen
 restart timer
+change background color
 */
 
 function printQuote () {
@@ -75,6 +82,9 @@ function printQuote () {
   }
   if (randomQuote.year) {
     html += '<span class="year">' + randomQuote.year + '</span>';
+  }
+  if (randomQuote.category) {
+    html += '<p class="category"; align="right"><b><i>' + '-' + randomQuote.category + '-' + '</i></b></p>';
   }
   html += '</p>';
   var div = document.getElementById('quote-box').innerHTML = html;
