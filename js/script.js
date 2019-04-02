@@ -6,57 +6,54 @@ project 1 - A Random Quote Generator
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
 /* 
-Create array with 5+ objects. each object with the following properties: "quote", "source";
-optional properties: "citation" added at least once, "year" added at least once.
+Quotes and related information.
 */
 
 var quotes = [
   {quote: 'I said there are certain flowers that wilt if you put them in a vase...',
-    source: 'Jorge Amado',
-    citation: 'Gabriela, Clove and Cinnamon',
-    year: '1962',
-    category: 'Book'
+   source: 'Jorge Amado',
+   citation: 'Gabriela, Clove and Cinnamon',
+   year: '1962',
+   category: 'book'
   },
   {quote: 'Wax on, wax off.',
-    source: 'Mr Miyagi',
-    citation: 'The Karate Kid',
-    year: '1984',
-    category: 'Movie'
+   source: 'Mr Miyagi',
+   citation: 'The Karate Kid',
+   year: '1984',
+   category: 'movie'
   },
   {quote: 'Every little thing gonna be alright!',
-    source: 'Bob Marley',
-    citation: 'Three little birds',
-    year: '1977',
-    category: 'Music'
+   source: 'Bob Marley',
+   citation: 'Three little birds',
+   year: '1977',
+   category: 'music'
   },
   {quote: 'Life would be much easier if I had the source code.',
-    source: 'Unknown'
+   source: 'Unknown'
   },
   {quote: 'My code is 100% mistrake free.',
-    source: 'Unknown'
+   source: 'Unknown'
   },
   {quote: 'Push through the pain. Giving up hurts more.',
-    source: 'Vegeta',
-    citation: 'Drangon Ball Z',
-    category: 'Anime'
+   source: 'Vegeta',
+   citation: 'Drangon Ball Z',
   }
 ]
 
-// array of background colors and image
-var backgrounds = ['red', 'blue', 'purple', "url('testPic.png')", 'orange'];  ///   CHANGE PIC!!
+// Background colors
+var backgrounds = ['red', 'blue', 'purple', 'orange', 'olive', 'teal', 'green', 'navy'];
 
-// timer; if button not clicked, timer will run continuously
+// Timer to change quote on screen
 var timer = setInterval(printQuote, 5000); 
 
-// function to change background
+// Randomly pick and change background color
 function changeBackground() {
   var number =  Math.floor(Math.random() * backgrounds.length);
   document.body.style.background = backgrounds[number];
 }
 
 /*
-getRandomQuote will calculate randomNumber to be used as index in quotes array. 
-This will return a random object (quote and related info)
+Return a random quote and related information from quotes[])
 */
 
 function getRandomQuote () {
@@ -65,11 +62,9 @@ function getRandomQuote () {
 }
 
 /*
-printQuote will getRandomQuote,
-build one paragraph with quote, second and third paragraph with remaining info,
-print to screen
-restart timer
-change background color
+Print a quote to screen
+Restart timer
+Change background color
 */
 
 function printQuote () {
@@ -84,9 +79,9 @@ function printQuote () {
     html += '<span class="year">' + randomQuote.year + '</span>';
   }
   if (randomQuote.category) {
-    html += '<p class="category"; align="right"><b><i>' + '-' + randomQuote.category + '-' + '</i></b></p>';
+    html += '<span class="category"; align="right">' + ' ' + randomQuote.category + '</p>';
   }
-  html += '</p>';
+  html += '</span>';
   var div = document.getElementById('quote-box').innerHTML = html;
   clearInterval(timer);
   timer = setInterval(printQuote, 5000);
