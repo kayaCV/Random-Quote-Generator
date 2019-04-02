@@ -79,7 +79,7 @@ function printQuote () {
   timer = setInterval(printQuote, 5000);
   changeBackground();
 }
-
+printQuote ();
 /***
   When button is clicked, event listener 
   below will call printQuote
