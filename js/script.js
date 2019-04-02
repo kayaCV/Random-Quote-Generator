@@ -3,12 +3,8 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
-/* 
-Quotes and related information.
-*/
-
+//Quotes and related information
 var quotes = [
   {quote: 'I said there are certain flowers that wilt if you put them in a vase...',
    source: 'Jorge Amado',
@@ -52,10 +48,7 @@ function changeBackground() {
   document.body.style.background = backgrounds[number];
 }
 
-/*
-Return a random quote and related information from quotes[])
-*/
-
+// Return a random quote and related information from quotes[]
 function getRandomQuote () {
   var randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
@@ -66,7 +59,6 @@ Print a quote to screen
 Restart timer
 Change background color
 */
-
 function printQuote () {
   var randomQuote = getRandomQuote();
   var html = '';
